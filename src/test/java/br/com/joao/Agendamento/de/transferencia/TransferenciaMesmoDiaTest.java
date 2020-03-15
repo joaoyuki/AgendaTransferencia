@@ -10,8 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import br.com.joao.AgendamentoTransferencia.TransferenciaMesmoDia;
 import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
+import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.TransferenciaMesmoDia;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TransferenciaMesmoDiaTest {

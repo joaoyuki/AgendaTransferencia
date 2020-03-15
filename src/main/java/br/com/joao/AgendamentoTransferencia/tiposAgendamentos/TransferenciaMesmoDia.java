@@ -1,5 +1,6 @@
-package br.com.joao.AgendamentoTransferencia;
+package br.com.joao.AgendamentoTransferencia.tiposAgendamentos;
 
+import br.com.joao.AgendamentoTransferencia.Transferencia;
 import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
 
 public class TransferenciaMesmoDia implements Transferencia{
@@ -17,5 +18,5 @@ public class TransferenciaMesmoDia implements Transferencia{
 		return 0;
 	}
 
-
+	
 }

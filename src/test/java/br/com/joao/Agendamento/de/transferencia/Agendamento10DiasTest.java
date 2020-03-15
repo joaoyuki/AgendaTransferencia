@@ -11,8 +11,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import br.com.joao.AgendamentoTransferencia.Agendamento10Dias;
 import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
+import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.Agendamento10Dias;
 
 @RunWith(MockitoJUnitRunner.class)
 public class Agendamento10DiasTest {
@@ -24,11 +24,6 @@ public class Agendamento10DiasTest {
 		
 		agendamento12Dias = new Agendamento10Dias();
 		
-	}
-	
-	@Test
-	public void teste() {
-		assertTrue(1 < 2);
 	}
 	
 	@Test
