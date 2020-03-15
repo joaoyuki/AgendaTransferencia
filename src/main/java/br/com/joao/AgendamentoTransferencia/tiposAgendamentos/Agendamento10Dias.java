@@ -7,9 +7,10 @@ import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
 
 public class Agendamento10Dias implements Transferencia {
 
-	private static final int DIAS_12 = 12;
+	private static final int TAXA_12_REAIS = 12;
 	private static final int DIAS_0 = 0;
 	private static final int DIAS_11 = 11;
+	private Transferencia transferencia;
 
 	@Override
 	public double calcularTransferencia(TransferenciaRequest transferenciaRequest) {
@@ -18,12 +19,18 @@ public class Agendamento10Dias implements Transferencia {
 		
 		if (diasEntreDatas > DIAS_0 && diasEntreDatas < DIAS_11) {
 			
-			double taxaCalculada = (transferenciaRequest.getValorTransferencia() * diasEntreDatas) + DIAS_12;
+			double taxaCalculada = (transferenciaRequest.getValorTransferencia() * diasEntreDatas) + TAXA_12_REAIS;
 			return taxaCalculada;
 			
+		} else {
+			return transferencia.calcularTransferencia(transferenciaRequest);
 		}
 		
-		return 0;
+	}
+
+	@Override
+	public void setProximaTaxa(Transferencia transferencia) {
+		this.transferencia = transferencia;
 	}
 
 

@@ -11,6 +11,7 @@ public class AgendamentoAcima10Dias implements Transferencia{
 	private static final int DIAS_20 = 20;
 	private static final int DIAS_30 = 30;
 	private static final int DIAS_40 = 40;
+	private Transferencia transferencia;
 
 	@Override
 	public double calcularTransferencia(TransferenciaRequest transferenciaRequest) {
@@ -43,8 +44,13 @@ public class AgendamentoAcima10Dias implements Transferencia{
 			return taxaCalculada;			
 		}
 		
-		return 0;
+		return transferencia.calcularTransferencia(transferenciaRequest);
 		
+	}
+
+	@Override
+	public void setProximaTaxa(Transferencia transferencia) {
+		this.transferencia = transferencia;
 	}
 
 }

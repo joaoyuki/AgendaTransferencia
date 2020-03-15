@@ -5,5 +5,5 @@ import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
 public interface Transferencia {
 
 	double calcularTransferencia(TransferenciaRequest transferenciaRequest);
-	
+	void setProximaTaxa(Transferencia transferencia);
 }

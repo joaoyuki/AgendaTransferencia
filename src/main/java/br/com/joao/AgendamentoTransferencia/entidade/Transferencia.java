@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
+import br.com.joao.AgendamentoTransferencia.controller.request.TransferenciaControllerRequest;
+
 
 @Entity
 public class Transferencia {
@@ -21,21 +22,22 @@ public class Transferencia {
 	private double valorTransferencia;
 	private LocalDate dataTransferencia;
 	private LocalDate dataAgendamento;
+	private double taxa;
 	
-	public static Transferencia buildTransferencia(TransferenciaRequest transferenciaRequest) {
+	public static Transferencia buildTransferencia(TransferenciaControllerRequest transferenciaRequest) {
 		Transferencia novaTransferencia = new Transferencia();
 		novaTransferencia.setContaDestino(transferenciaRequest.getContaDestino());
 		novaTransferencia.setContaOrigem(transferenciaRequest.getContaOrigem());
-		novaTransferencia.setDataAgendamento(transferenciaRequest.getDataAgendamento());
+		novaTransferencia.setDataAgendamento(LocalDate.now());
 		novaTransferencia.setDataTransferencia(transferenciaRequest.getDataTransferencia());
 		novaTransferencia.setValorTransferencia(transferenciaRequest.getValorTransferencia());
 		return novaTransferencia;
 	}
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public int getContaOrigem() {
@@ -67,6 +69,14 @@ public class Transferencia {
 	}
 	public void setDataAgendamento(LocalDate dataAgendamento) {
 		this.dataAgendamento = dataAgendamento;
+	}
+
+	public double getTaxa() {
+		return taxa;
+	}
+
+	public void setTaxa(double taxa) {
+		this.taxa = taxa;
 	}
 	
 }

@@ -1,28 +1,21 @@
-package br.com.joao.AgendamentoTransferencia.request;
+package br.com.joao.AgendamentoTransferencia.controller.request;
 
 import java.time.LocalDate;
 
-public class TransferenciaRequest {
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import io.swagger.annotations.ApiModelProperty;
+
+public class TransferenciaControllerRequest {
 
 	private int contaOrigem;
 	private int contaDestino;
 	private double valorTransferencia;
+	
+	@ApiModelProperty(value = "Por favor utilizar o formato yyyy-MM-dd")
+	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate dataTransferencia;
-	private LocalDate dataAgendamento = LocalDate.now();
-	
-	
-	public TransferenciaRequest() {
-		
-	}
-	
-	public TransferenciaRequest(int contaOrigem, int contaDestino, double valorTransferencia,
-			LocalDate dataTransferencia) {
-		this.contaOrigem = contaOrigem;
-		this.contaDestino = contaDestino;
-		this.valorTransferencia = valorTransferencia;
-		this.dataTransferencia = dataTransferencia;
-		this.dataAgendamento = LocalDate.now();
-	}
 	
 	public int getContaOrigem() {
 		return contaOrigem;
@@ -48,8 +41,7 @@ public class TransferenciaRequest {
 	public void setDataTransferencia(LocalDate dataTransferencia) {
 		this.dataTransferencia = dataTransferencia;
 	}
-	public LocalDate getDataAgendamento() {
-		return dataAgendamento;
-	}
 	
 }
+
+
