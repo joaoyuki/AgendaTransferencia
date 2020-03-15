@@ -1,4 +1,4 @@
-package br.com.joao.Agendamento.de.transferencia;
+package br.com.joao.AgendamentoTransferencia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
