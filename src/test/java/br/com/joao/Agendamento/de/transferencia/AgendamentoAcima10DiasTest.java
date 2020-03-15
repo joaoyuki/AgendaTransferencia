@@ -79,15 +79,6 @@ public class AgendamentoAcima10DiasTest {
 	}	
 	
 	@Test
-	public void deveriaCalcularTaxaCom41DiasEValorMenorDe100000() {
-		
-		TransferenciaRequest request = new TransferenciaRequest(123, 234, 10.0, LocalDate.now().plusDays(41));
-		double taxa = agendamentoAcima10Dias.calcularTransferencia(request);
-		assertEquals(0d, taxa);
-		
-	}	
-	
-	@Test
 	public void deveriaCalcularTaxaCom41DiasEValorAciaDe100000() {
 		
 		TransferenciaRequest request = new TransferenciaRequest(123, 234, 101.000, LocalDate.now().plusDays(41));

@@ -44,22 +44,4 @@ public class Agendamento10DiasTest {
 		
 	}	
 	
-	@Test
-	public void deveriaCalcularTaxaCom11Dias() {
-		
-		TransferenciaRequest request = new TransferenciaRequest(123, 234, 10.0, LocalDate.now().plusDays(11));
-		double calcularTransferencia = agendamento12Dias.calcularTransferencia(request);
-		assertEquals(new Double(0), calcularTransferencia);
-		
-	}	
-	
-	@Test
-	public void deveriaCalcularTaxaCom0Dias() {
-		
-		TransferenciaRequest request = new TransferenciaRequest(123, 234, 10.0, LocalDate.now());
-		double calcularTransferencia = agendamento12Dias.calcularTransferencia(request);
-		assertEquals(new Double(0), calcularTransferencia);
-		
-	}		
-	
 }

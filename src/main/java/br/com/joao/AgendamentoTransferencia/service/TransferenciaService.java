@@ -13,7 +13,7 @@ import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
 import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.Agendamento10Dias;
 import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.AgendamentoAcima10Dias;
 import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.NenhumaTaxaAplicavel;
-import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.TransferenciaMesmoDia;
+import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.AgendamentoMesmoDia;
 
 @Service
 public class TransferenciaService {
@@ -21,9 +21,9 @@ public class TransferenciaService {
 	@Autowired
 	private TransferenciaRepositorio transferenciaRepositorio;
 
-	public Transferencia calcularTaxa(TransferenciaControllerRequest transferenciaRequest) {
+	public Transferencia calcularTaxa(TransferenciaControllerRequest transferenciaControllerRequest) {
 
-		br.com.joao.AgendamentoTransferencia.Transferencia t1 = new TransferenciaMesmoDia();
+		br.com.joao.AgendamentoTransferencia.Transferencia t1 = new AgendamentoMesmoDia();
 		br.com.joao.AgendamentoTransferencia.Transferencia t2 = new Agendamento10Dias();
 		br.com.joao.AgendamentoTransferencia.Transferencia t3 = new AgendamentoAcima10Dias();
 		br.com.joao.AgendamentoTransferencia.Transferencia t4 = new NenhumaTaxaAplicavel();
@@ -32,10 +32,10 @@ public class TransferenciaService {
 		t2.setProximaTaxa(t3);
 		t3.setProximaTaxa(t4);
 
-		TransferenciaRequest abc = new TransferenciaRequest();
-		BeanUtils.copyProperties(transferenciaRequest, abc);
-		double calcularTransferencia = t1.calcularTransferencia(abc);
-		Transferencia buildTransferencia = Transferencia.buildTransferencia(transferenciaRequest);
+		TransferenciaRequest dadosTransferenciaRequest = new TransferenciaRequest();
+		BeanUtils.copyProperties(transferenciaControllerRequest, dadosTransferenciaRequest);
+		double calcularTransferencia = t1.calcularTransferencia(dadosTransferenciaRequest);
+		Transferencia buildTransferencia = Transferencia.buildTransferencia(transferenciaControllerRequest);
 		buildTransferencia.setTaxa(calcularTransferencia);
 		
 		try {

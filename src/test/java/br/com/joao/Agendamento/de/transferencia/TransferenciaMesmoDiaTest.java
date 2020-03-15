@@ -11,16 +11,16 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
-import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.TransferenciaMesmoDia;
+import br.com.joao.AgendamentoTransferencia.tiposAgendamentos.AgendamentoMesmoDia;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TransferenciaMesmoDiaTest {
 	
-	TransferenciaMesmoDia transferenciaMesmoDia;
+	AgendamentoMesmoDia transferenciaMesmoDia;
 	
 	@Before
 	public void init() {
-		transferenciaMesmoDia = new TransferenciaMesmoDia();
+		transferenciaMesmoDia = new AgendamentoMesmoDia();
 	}
 	
 	@Test
@@ -32,13 +32,5 @@ public class TransferenciaMesmoDiaTest {
 		assertEquals(new Double(3.3), calcularTransferencia);
 	}
 	
-	@Test
-	public void deveriaRetornar0ComDataTransferenciaDiferenteDeMesmoDia() {
-		TransferenciaRequest request = new TransferenciaRequest(123, 456, 10d, LocalDate.now().plusDays(1));
-		
-		double calcularTransferencia = transferenciaMesmoDia.calcularTransferencia(request);
-		
-		assertEquals(new Double(0), calcularTransferencia);		
-	}
 
 }

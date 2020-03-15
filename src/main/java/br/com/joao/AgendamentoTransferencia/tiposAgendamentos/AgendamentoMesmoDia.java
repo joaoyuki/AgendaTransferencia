@@ -3,8 +3,9 @@ package br.com.joao.AgendamentoTransferencia.tiposAgendamentos;
 import br.com.joao.AgendamentoTransferencia.Transferencia;
 import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
 
-public class TransferenciaMesmoDia implements Transferencia{
+public class AgendamentoMesmoDia implements Transferencia{
 
+	private static final int TAXA_3_REAIS = 3;
 	private Transferencia transferencia;
 
 	@Override
@@ -12,7 +13,7 @@ public class TransferenciaMesmoDia implements Transferencia{
 
 		if (transferenciaRequest.getDataTransferencia().isEqual(transferenciaRequest.getDataAgendamento())) {
 			
-			double taxaCalculada = (transferenciaRequest.getValorTransferencia() * 0.03) + 3;
+			double taxaCalculada = (transferenciaRequest.getValorTransferencia() * 0.03) + TAXA_3_REAIS;
 			return taxaCalculada;
 			
 		} else {
