@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import br.com.joao.AgendamentoTransferencia.request.TransferenciaRequest;
+
 @Entity
 public class Transferencia {
 
@@ -19,6 +21,16 @@ public class Transferencia {
 	private double valorTransferencia;
 	private LocalDate dataTransferencia;
 	private LocalDate dataAgendamento;
+	
+	public static Transferencia buildTransferencia(TransferenciaRequest transferenciaRequest) {
+		Transferencia novaTransferencia = new Transferencia();
+		novaTransferencia.setContaDestino(transferenciaRequest.getContaDestino());
+		novaTransferencia.setContaOrigem(transferenciaRequest.getContaOrigem());
+		novaTransferencia.setDataAgendamento(transferenciaRequest.getDataAgendamento());
+		novaTransferencia.setDataTransferencia(transferenciaRequest.getDataTransferencia());
+		novaTransferencia.setValorTransferencia(transferenciaRequest.getValorTransferencia());
+		return novaTransferencia;
+	}
 	
 	public long getId() {
 		return id;
